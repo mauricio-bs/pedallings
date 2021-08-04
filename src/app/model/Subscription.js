@@ -4,7 +4,9 @@ class Subscription extends Model {
   static init(sequelize) {
     super.init(
       {
-        subcription_date: Sequelize.DATE,
+        ride_id: Sequelize.UUID,
+        participant_id: Sequelize.UUID,
+        subscription_date: Sequelize.DATE,
       },
       {
         sequelize,
@@ -15,13 +17,13 @@ class Subscription extends Model {
   // Add one ride and user ids
   static associate(model) {
     this.hasOne(model.Ride, {
-      foreignKey: 'id',
-      name: 'ride_id',
+      foreignKey: 'ride_id',
+      as: 'ride_id',
       type: Sequelize.UUID,
     })
     this.hasOne(model.User, {
-      foreignKey: 'id',
-      name: 'participant_id',
+      foreignKey: 'user_id',
+      as: 'participant_id',
       type: Sequelize.UUID,
     })
   }
