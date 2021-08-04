@@ -35,9 +35,22 @@ To contribute with this API, follow this steps:
 1. Fork this repository.
 2. Create a new branch: `git checkout -b <branch_name>`
 3. Make your changes and confirm: `git commit -m '<commit_message>'`
-4. Create a pull request.
+4. Send to the original branch: `git push origin MoneyConverter / <local>`
+5. Create a pull request.
 
 ## 🤝 Collaborators
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/mauricio-bs">
+        <img src="https://avatars3.githubusercontent.com/mauricio-bs" width="100px;" alt="Photo of Mauricio Schimit on GitHub"/><br>
+        <sub>
+          <b>Mauricio Schimit</b>
+        </sub>
+      </a>
+    </td>
+</table>
 
 We thanks the following people that contribute to this project:
 
