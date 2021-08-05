@@ -1,25 +1,22 @@
-## Comando obrigatório
-## Baixa a imagem do node com versão alpine (versão mais simplificada e leve)
+## Required command
+## Download the node alpine version image (simplified and ligher version)
 FROM node:alpine
 
-## Define o local onde o app vai ficar no disco do container
-## Pode ser o diretório que você quiser
+## Defines the location where the app will stay on the container's disk
 WORKDIR /usr/src/app
 
-## Copia tudo que começa com package e termina com .json, e tudo que inicia com yarn para dentro da pasta /usr/app
+## Copies everything that starts with package and ends with .json, and everything that starts with yarn into the '/usr/app' folder
 COPY package*.json yarn.* ./
 
-## Executa yarn para adicionar as dependências e criar a pasta node_modules
+# Execute yarn command, to install all dependencies and to create the node_modules folder
 RUN yarn
 
-## Copia tudo que está no diretório onde o arquivo Dockerfile está 
-## para dentro da pasta /usr/app do container
-## Vamos ignorar a node_modules por isso criaremos um .dockerignore
+## Copy everything in directory where the Dockerfile file is
+## into the container's /usr/app folder
 COPY . .
 
-## Container ficará ouvindo os acessos na porta 3000
+## Container will be listen accesses at port 3000
 EXPOSE 3000
 
-## Não se repete no Dockerfile
-## Executa o comando yarn dev para iniciar o script que que está no package.json
+## Execute 'yarn dev' command to start the script that is in package.json
 CMD yarn dev
