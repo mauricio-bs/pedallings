@@ -38,11 +38,6 @@ class SessionController {
       }),
     })
   }
-
-  async delete(req, res) {
-    // Set token as null, and auth as false to logout user
-    res.json({ auth: false, token: null })
-  }
 }
 
 export default new SessionController()
