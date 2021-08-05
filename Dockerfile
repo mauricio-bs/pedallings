@@ -21,5 +21,5 @@ COPY . .
 EXPOSE 3000
 
 ## Não se repete no Dockerfile
-## Executa o comando npm start para iniciar o script que que está no package.json
+## Executa o comando yarn dev para iniciar o script que que está no package.json
 CMD yarn dev

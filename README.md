@@ -48,6 +48,8 @@ To contribute with this API, follow this steps:
 
 ## 🤝 Collaborators
 
+We thanks the following people that contribute to this project:
+
 <table>
   <tr>
     <td align="center">
@@ -60,6 +62,5 @@ To contribute with this API, follow this steps:
     </td>
 </table>
 
-We thanks the following people that contribute to this project:
 
 [⬆ Back to the top](#Pedallings)<br>
