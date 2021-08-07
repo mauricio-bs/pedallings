@@ -2,6 +2,7 @@ import { v4 } from 'uuid'
 import { isBefore, isAfter } from 'date-fns'
 // Model
 import Ride from '../model/Ride'
+import Subscription from '../model/Subscription'
 // validation shapes
 import rideValidation from '../../validation/rideValidation'
 
@@ -81,12 +82,13 @@ class RideController {
     // Ride ID passed in URL
     const { id } = req.params
 
-    // At first check if ride exists, when find a ride delete it,
+    // At first check if ride exists, if true, delete it and update subscriptions where it are
     // and case don't find the ride or don't be able to connect with database, return a error.
     try {
       const ride = await Ride.findByPk(id)
       if (!ride) res.status(400).json({ error: 'Ride not found' })
-      Ride.destroy({ where: { id } })
+      await Subscription.update({ ride_id: 0 }, { where: { ride_id: id } })
+      await Ride.destroy({ where: { id } })
     } catch (err) {
       return res.status(500).json({ error: 'Internal server error' })
     }

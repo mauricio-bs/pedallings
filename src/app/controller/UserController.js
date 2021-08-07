@@ -1,6 +1,8 @@
 import { v4 } from 'uuid'
 // Model
 import User from '../model/User'
+import Ride from '../model/Ride'
+import Subscription from '../model/Subscription'
 // Validation shapes
 import userValidation from '../../validation/userValidation'
 
@@ -105,8 +107,14 @@ class UserController {
       return res.status(400).json({ error: 'User not found' })
     }
 
-    // Delete user in database
+    // Update table fields where user was ride author or participant at subscription
+    // And delete use
     try {
+      await Subscription.update(
+        { participant_id: 0 },
+        { where: { participant_id: id } }
+      )
+      await Ride.update({ author: 0 }, { where: { author: id } })
       await User.destroy({ where: { id } })
     } catch (err) {
       return res.json({ error: err })
