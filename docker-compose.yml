@@ -1,11 +1,36 @@
-## especifica a versão do docker-compose file
-version: "3" 
+version: '3'
 
-services: ## Define um serviço
-  riderize: ## nome do serviço
-    build: . ## localização do dockerfile
-    command: yarn debug ## comando a executar
-    ports:
-      - "3000:3000" ## redirecionamento de porta quando chegar alguma requisição na porta 3000 chama o container na porta 3000
+services:
+
+  nodejs:
+    container_name: nodejs
+    build: '.'
     volumes:
-      - .:/usr/app ## monitoro a pasta atual . e envio as alterações para /usr/app
+      - .:/home/node/api
+      - /home/node/api/node_modules
+    depends_on:
+      - postgres
+    networks:
+      - app-connect
+    ports:
+      - '3000:3000'
+
+  postgres:
+    container_name: postgres
+    image: postgres:13
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/data
+    environment: 
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS} 
+    networks:
+      - app-connect
+
+volumes:
+  postgres-data:
+
+networks:
+  app-connect:
+      driver: bridge
