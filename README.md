@@ -11,26 +11,21 @@
 
 ## 💻 Requirements
 
-To use this API, make sure to connect this with an availble postgre database. <br>
-The default port to access the api is 3000, make sure that it doesn't being used.
+To use this API, make sure you have docker installed, if you don't have docker yet, 
+download here: <br>
+<a target="_blank" href="https://hub.docker.com/search?offering=community&q=&type=edition&operating_system=windows">Windows</a><br>
+<a target="_blank" href="https://hub.docker.com/search?offering=community&q=&type=edition&operating_system=linux">Linux</a><br>
+<a target="_blank" href="https://hub.docker.com/search?offering=community&q=&type=edition&operating_system=mac">Mac</a>
 
-> To switch the database reference, go to src/config/database.js, and change your database location and credentials
+## 🚀 Environment preparation
 
-``host: <database_address> ``<br>
-``username: <username> ``<br>
-``password: <password> ``<br>
-``database: <database_schema> ``<br>
-<br>
-
-## Install
-
-Make sure you have docker installed on your local machine, and run the following command
+After clone this repository, open the terminal in this folder's project, and type the following command:
 
 ````
-$ docker-compose up -d
+docker-compose up -d
 ````
 
-## ☕ Using this API
+## ☕ Using Pedallings
 
 To see how to use, routes guides, and required data for each one, see ROUTES.md
 <br>
@@ -43,7 +38,7 @@ To contribute with this API, follow this steps:
 1. Fork this repository.
 2. Create a new branch: `git checkout -b <branch_name>`
 3. Make your changes and confirm: `git commit -m '<commit_message>'`
-4. Send to the original branch: `git push origin MoneyConverter / <local>`
+4. Send to the original branch: `git push origin pedallings / <local>`
 5. Create a pull request.
 
 ## 🤝 Collaborators
